@@ -4,6 +4,8 @@
  */
 package almeribikev1;
 
+import almeribikev1.ctr.ControllerGeneral;
+
 /**
  *
  * @author Gaertan
@@ -14,7 +16,13 @@ public class AlmeriBikeV1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ControllerGeneral controller = ControllerGeneral.getInstance();
+        controller.iniciarApp();
+        
+        
+        
+        
+        
     }
     
 }

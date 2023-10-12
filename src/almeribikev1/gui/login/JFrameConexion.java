@@ -4,17 +4,28 @@
  */
 package almeribikev1.gui.login;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Gaertan
  */
 public class JFrameConexion extends javax.swing.JFrame {
-
+     private ControllerLogin controllerLogin;
+        String packageName = getClass().getPackage().getName();
+        String nodePath = "/" + packageName.replace('.', '/');
     /**
      * Creates new form JFrameConexion
      */
     public JFrameConexion() {
         initComponents();
+        controllerLogin = ControllerLogin.getInstance();
+
+        
     }
 
     /**
@@ -26,13 +37,15 @@ public class JFrameConexion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        JTFUrl = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        JTFUsuario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        JPFPassword = new javax.swing.JPasswordField();
+        jButtonReestablecer = new javax.swing.JButton();
+        jButtonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 500));
@@ -40,12 +53,12 @@ public class JFrameConexion extends javax.swing.JFrame {
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        JTFUrl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                JTFUrlActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 239, -1));
+        getContentPane().add(JTFUrl, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 239, -1));
 
         jCheckBox1.setText("Recordar");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -54,8 +67,7 @@ public class JFrameConexion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 303, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 184, 239, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 267, 236, -1));
+        getContentPane().add(JTFUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 184, 239, -1));
 
         jLabel1.setText("Dirección");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 76, -1, -1));
@@ -65,6 +77,18 @@ public class JFrameConexion extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 233, -1, -1));
+        getContentPane().add(JPFPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 240, -1));
+
+        jButtonReestablecer.setText("reestablecer");
+        jButtonReestablecer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonReestablecerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonReestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
+
+        jButtonSalir.setText("salir");
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -73,9 +97,13 @@ public class JFrameConexion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void JTFUrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFUrlActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_JTFUrlActionPerformed
+
+    private void jButtonReestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReestablecerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonReestablecerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,13 +140,63 @@ public class JFrameConexion extends javax.swing.JFrame {
         });
     }
 
+    public ControllerLogin getControllerLogin() {
+        return controllerLogin;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public String getNodePath() {
+        return nodePath;
+    }
+
+    public JPasswordField getJPFPassword() {
+        return JPFPassword;
+    }
+
+    public JTextField getJTFUrl() {
+        return JTFUrl;
+    }
+
+    public JTextField getJTFUsuario() {
+        return JTFUsuario;
+    }
+
+    public JButton getjButtonReestablecer() {
+        return jButtonReestablecer;
+    }
+
+    public JButton getjButtonSalir() {
+        return jButtonSalir;
+    }
+
+    public JCheckBox getjCheckBox1() {
+        return jCheckBox1;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField JPFPassword;
+    private javax.swing.JTextField JTFUrl;
+    private javax.swing.JTextField JTFUsuario;
+    private javax.swing.JButton jButtonReestablecer;
+    private javax.swing.JButton jButtonSalir;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

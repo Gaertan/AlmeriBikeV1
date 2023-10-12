@@ -4,7 +4,7 @@
  */
 package almeribikev1.ctr.utilidades;
 
-import static almeribikev1.ctr.controller.aviso;
+import static almeribikev1.gui.login.ControllerLogin.aviso;
 import java.io.File;
 import javax.naming.OperationNotSupportedException;
 

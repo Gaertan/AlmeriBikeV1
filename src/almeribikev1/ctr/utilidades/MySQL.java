@@ -5,23 +5,45 @@ package almeribikev1.ctr.utilidades;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-import almeribikev1.ctr.controller;
+import almeribikev1.gui.login.ControllerLogin;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MySQL {
+
+    public static String getHOST() {
+        return HOST;
+    }
+
+    public static String getESQUEMA() {
+        return ESQUEMA;
+    }
+
+    public static String getUSUARIO() {
+        return USUARIO;
+    }
+
+    public static String getCONTRASENA() {
+        return CONTRASENA;
+    }
+
+    public static String getURL() {
+        return URL;
+    }
 	
 	private static final String HOST = "localhost:3306";
 	private static final String ESQUEMA = "almeribike";
 	private static final String USUARIO = "root";
 	private static final String CONTRASENA = "mysql2223";
+        private static final String URL = "jdbc:mysql://localhost:3306" + "/" + ESQUEMA;
+
         
 	private static String base = "almeribike";
         private static String usuario = "root";
         private static String password = "mysql2223";
-        private static String url = "jdbc:mysql://localhost:3306" + base;
+        private static String url = "jdbc:mysql://localhost:3306" + "/" + base;
 	private static Connection conexion = null;
 	
 	private MySQL() {
@@ -32,11 +54,11 @@ public class MySQL {
 			return conexion;
 		try {
 									
-			conexion = DriverManager.getConnection(host+ESQUEMA,usuario,password);
+			conexion = DriverManager.getConnection(host+"/"+ESQUEMA,usuario,password);
 			System.out.println("Conexión a MySQL realizada correctamente.");
 		} catch (SQLException e) {
 //			System.out.println("ERROR MySQL:  "+ e.toString());
-                        controller.aviso("ERROR MySQL:  "+ e.toString());
+                        ControllerLogin.aviso("ERROR MySQL:  "+ e.toString());
 		}
 		return conexion;
         
@@ -47,13 +69,12 @@ public class MySQL {
 			return conexion;
 		try {
 						
-			//Class.forName("com.mysql.jdbc.Driver").newInstance(); // ESTA LÍNEA ESTÁ OBSOLETA
 			
 			conexion = DriverManager.getConnection(url,usuario,password);
 			System.out.println("Conexión a MySQL realizada correctamente.");
 		} catch (SQLException e) {
 //			System.out.println("ERROR MySQL:  "+ e.toString());
-                        controller.aviso("ERROR MySQL:  "+ e.toString());
+                        ControllerLogin.aviso("ERROR MySQL:  "+ e.toString());
 		}
 		return conexion;
 	}
@@ -128,7 +149,7 @@ public class MySQL {
 				System.out.println("Conexión a MySQL cerrada correctamente.");
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR MySQL: "+ e.toString());
+//			System.out.println("ERROR MySQL: "+ e.toString());
 		}
 	}
 
